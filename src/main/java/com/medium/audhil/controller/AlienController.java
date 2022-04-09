@@ -112,4 +112,12 @@ public class AlienController {
     public Optional<Alien> getAlienByIdJson(@PathVariable int id) {
         return jpaRepo.findById(id);
     }
+
+    //  restricting server to give only XML responses
+    @RequestMapping(path = "/aliens_xml", produces = {"application/xml"})
+    @ResponseBody   //  hey, I'm returning data, not a view name
+    public List<Alien> getAliensXML() {
+        return jpaRepo.findAll();
+    }
+
 }

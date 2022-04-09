@@ -17,6 +17,11 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	//	to support .jsp
 	implementation 'org.apache.tomcat.embed:tomcat-embed-jasper:9.0.60'
+
+	//	to generate xml
+	// https://mvnrepository.com/artifact/com.fasterxml.jackson.dataformat/jackson-dataformat-xml
+	implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.13.2'
+
 	runtimeOnly 'com.h2database:h2'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
