@@ -44,4 +44,29 @@ public class AlienController {
         mv.addObject(updatedAlien);
         return mv;
     }
+
+    @RequestMapping("/deleteAlien")
+    public ModelAndView deleteAlien(@RequestParam int aId) {
+        Alien alien = alienRepo.findById(aId).orElse(new Alien());
+        alienRepo.deleteById(aId);
+        ModelAndView mv = new ModelAndView("showAlien.jsp");
+        mv.addObject(alien);
+        return mv;
+    }
+
+    @RequestMapping("/getByTech")
+    public ModelAndView getByTech(@RequestParam String tech) {
+        ModelAndView mv = new ModelAndView("showAlien.jsp");
+        //  customised approach - you should follow, findBy/getBy+field name+GreaterThan/LessThan etc
+        if (!alienRepo.findBytech(tech).isEmpty()) {
+            Alien alien = alienRepo.findBytech(tech).get(0);
+            mv.addObject(alien);
+        }
+        //  one more customised approach - you should follow, findBy/getBy+field name+GreaterThan/LessThan etc
+        System.out.println(alienRepo.findByaIdGreaterThan(102));
+
+        //  complex customised approach
+        System.out.println(alienRepo.findByTechSorted("Kotlin"));
+        return mv;
+    }
 }

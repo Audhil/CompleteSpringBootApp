@@ -23,7 +23,7 @@
       <input type="submit"><br>
   </form>
 
-<h2>Get Alien</h2>
+<h2>Get Alien {Enter aId to getAlien}</h2>
   <form action="getAlien">
   <input type="text" name="aId"><br>
       <input type="submit"><br>
@@ -37,5 +37,16 @@
       <input type="submit"><br>
   </form>
 
+  <h2>Delete Alien {Enter aId to deleteAlien}</h2>
+    <form action="deleteAlien">
+    <input type="text" name="aId"><br>
+        <input type="submit"><br>
+    </form>
+
+    <h2>Get Alien by tech {Enter tech to getAlien}</h2>
+        <form action="getByTech">
+        <input type="text" name="tech"><br>
+            <input type="submit"><br>
+        </form>
 </body>
 </html>
