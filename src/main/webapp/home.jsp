@@ -15,9 +15,25 @@
   %>
   <a href="<%= request.getRequestURI() %>"><h3>Try Again</h3></a>
 
+<h2>Add Alien</h2>
   <form action="addAlien">
   <input type="text" name="aId"><br>
     <input type="text" name="aName"><br>
+    <input type="text" name="tech"><br>
+      <input type="submit"><br>
+  </form>
+
+<h2>Get Alien</h2>
+  <form action="getAlien">
+  <input type="text" name="aId"><br>
+      <input type="submit"><br>
+  </form>
+
+<h2>Update Alien</h2>
+  <form action="updateAlien">
+  <input type="text" name="aId"><br>
+    <input type="text" name="aName"><br>
+    <input type="text" name="tech"><br>
       <input type="submit"><br>
   </form>
 

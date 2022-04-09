@@ -9,13 +9,22 @@ public class Alien {
     @Id
     private int aId;
     private String aName;
+    private String tech;
 
     @Override
     public String toString() {
         return "Alien{" +
                 "aId=" + aId +
-                ", aName='" + aName + '\'' +
+                ", aName='" + aName +
+                ", tech=" + tech + '\'' +
                 '}';
+    }
+    public String getTech() {
+        return tech;
+    }
+
+    public void setTech(String tech) {
+        this.tech = tech;
     }
 
     public int getaId() {
