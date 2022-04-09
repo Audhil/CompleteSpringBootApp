@@ -1,12 +1,18 @@
 package com.medium.audhil.controller;
 
+import com.medium.audhil.dao.AlienJPARepo;
 import com.medium.audhil.dao.AlienRepo;
 import com.medium.audhil.model.Alien;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class AlienController {
@@ -68,5 +74,42 @@ public class AlienController {
         //  complex customised approach
         System.out.println(alienRepo.findByTechSorted("Kotlin"));
         return mv;
+    }
+
+    //  REST apis implementations
+    @RequestMapping("/aliens")
+    @ResponseBody   //  hey, I'm returning data, not a view name
+    public String getAliens() {
+        return alienRepo.findAll().toString();
+    }
+
+    @RequestMapping("/alien/102")
+    @ResponseBody
+    public String getAlien() {
+        return alienRepo.findById(102).toString();
+    }
+
+    //  using wild card
+    @RequestMapping("/alien/{id}")
+    @ResponseBody
+    public String getAlienById(@PathVariable int id) {
+        return alienRepo.findById(id).toString();
+    }
+
+    //  json format
+    @Autowired
+    AlienJPARepo jpaRepo;
+
+    @RequestMapping("/aliens_json")
+    @ResponseBody   //  hey, I'm returning data, not a view name
+    public List<Alien> getAliensJson() {
+        return jpaRepo.findAll();
+    }
+
+    //  using wild card
+    @RequestMapping("/alien_json/{id}")
+    @ResponseBody
+    public Optional<Alien> getAlienByIdJson(@PathVariable int id) {
+        return jpaRepo.findById(id);
     }
 }

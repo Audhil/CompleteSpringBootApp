@@ -1,2 +1,2 @@
 # CompleteSpringBootApp
-Spring Boot + JPA + MVC + H2
+Spring Boot + JPA + MVC + H2 + REST
